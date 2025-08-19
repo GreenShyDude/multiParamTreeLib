@@ -98,8 +98,7 @@ void multiNode<T>::printTreeIter(multiNode<T> *cursor, int par)  {
   if (!cursor) return;
   printTreeIter(cursor->left[par], par);
   std::cout << cursor->params[par] << " |-";
-  printPeer(cursor->peers_left[par], par);
-  printPeer(cursor->peers_right[par], par);
+  printPeer(cursor, par);
   std::cout << "| ";
   printTreeIter(cursor->right[par], par);
 }
