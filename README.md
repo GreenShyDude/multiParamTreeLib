@@ -1,5 +1,5 @@
 # Multi Parameter Binary Research Tree (MBRT) Library 
-Random project that I'm doing for the sake of writing some c++ and maybe use it in some other small project (games and a small dbms maybe, idk I don't readv "Il Tirreno") 
+Random project that I'm doing for the sake of writing some c++ and maybe use it in some other small project (games and a small dbms maybe, idk I don't read "Il Tirreno") 
 ## Contents
 - ### Tempalte MBRT:
 - - Generic Class
