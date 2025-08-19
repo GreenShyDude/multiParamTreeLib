@@ -3,8 +3,8 @@
 #include <string>
 
 /* MAIN doubleNode CONSTRUCTOR
- * limited to just initialize the 
- *
+ * limited to just initialize the parametes and branches 
+ * the management of the tree is responsabilty of the dev
  */ 
 doubleNode::doubleNode(int p1, std::string p2) : 
     param1(p1),
@@ -19,6 +19,21 @@ doubleNode::doubleNode(int p1, std::string p2) :
     peer1r(nullptr)
   {}
 
+/* FUNCTION addNode - Chaining Method
+ * Public method to start the insertion of a preinitialized Node and return the outcome of the operation, it procedes to remove a duplicate if inserted during the first iteration
+ *
+ * Supposed complexity O(logN) (inetun
+ * 
+ * Devs must instantiate a node that they want to add to the tree
+ * 
+ * Devs are responsable for the tree mantainence and taking track of the root (and the quality of life is screewd)  
+ *  
+ * To do:
+ * - the call to removeNodeP1 could removed due to the peer managemet system that will catch the duplicate at the first iteration
+ * Ideas & Tips:
+ * - this method allows to implement nodes as elment of an hash table to minmize the time complexity to acces to them
+
+ */ 
 bool doubleNode::addNode(doubleNode *target){
     if (!target) {
       return false;
@@ -32,6 +47,9 @@ bool doubleNode::addNode(doubleNode *target){
     return true;
   }
 
+/* FUNTION addNodeP1 - Chaining Method Iterator
+ * Private Iterator that commit the insertion of the Node 
+  */
 bool doubleNode::addNodeP1(doubleNode* cursor,  doubleNode *target) {
     if (cursor->param1 == target->param1) return addPeerP1(cursor, target);
     else if (target->param1 > cursor->param1 ) {
@@ -61,7 +79,9 @@ bool doubleNode::addNodeP2(doubleNode* cursor, doubleNode *target) {
       } else return addNodeP2(cursor->right2, target);
     }  
 }
-
+/* FUNCTION addPeerP1 - Private Iterartor
+ * Private 
+ */
 bool doubleNode::addPeerP1(doubleNode * cursor, doubleNode * target) {
     int comp = target->param2.compare(cursor->param2);
     if (!comp) return false;

@@ -3,9 +3,11 @@
 #include <iostream>
 
 /* TEMPLATE NODE MAIN CONSTURCTORS: 
- * allow to use vector std library to increse the quality of life of the dev that will use this library
- * it need a custom compare function to reduce the responsabilities of the code 
- * maybe a default later that will nened a custom implementation of the < > ==  <= >= operators
+ * This construtor allows to use vector std library to increse the quality of life of the dev that will use this library
+ * 
+ * It needs a custom compare function to reduce the responsabilities of the code 
+ * To do:
+ * - Add default compare that will nened a custom implementation of the < > ==  <= >= operators
  */
 template<typename T>
 multiNode<T>::multiNode(std::vector<T> n_params, std::function<comp_ret(T,T)> n_cmp) {
@@ -25,16 +27,21 @@ multiNode::~multiNode() {
 }
 */
 
-/* Do i need to explain this
+/* TEMPLATE FUNCTION getNumParams
+ * Do i really need to explain this
  */
 template<typename T>
 int multiNode<T>::getNumParams() {return params.size();}
 
-/* Public method to start the insertion of a preinitialized Node
- * devs must instantiate a node that they want to add to the tree
- * devs are responsable for the tree mantainence
+/* TEMPLATE FUNCTION addNode - Chaining Method
+ * Public method to start the insertion of a preinitialized Node
  * 
- * it allows to implement nodes as elment of an hash table to minmize the time complexity to acces to them
+ * Devs must instantiate a node that they want to add to the tree
+ * 
+ * Devs are responsable for the tree mantainence
+ * 
+ * Ideas & Tips:
+ * - This implementation allows to implement nodes as elment of an hash table to minmize the time complexity to acces to them
 */
 template<typename T>
 bool multiNode<T>::addNode(multiNode<T> * target) {
@@ -44,10 +51,13 @@ bool multiNode<T>::addNode(multiNode<T> * target) {
   return true;
 }
 
-/* Recursive Iterator for a single given parameter (potensial not recursive implementation in the future) 
- * it manages through a switch the comparison of the tow nodes for a specific parameter
- * needs improvement for spatial optimization to lower compiling and execution time:
- * possible solution through a template integer parameter
+/* TEMPLATE FUNCTION addNodeIter - Chaining Method  
+ * Private recursive Iterator for a single given parameter (potensial not recursive implementation in the future) 
+ * 
+ * It manages through a switch the comparison of the tow nodes for a specific parameter
+ * 
+ * To do: 
+ * - improvement for spatial and time optimization to lower compiling and execution time => possible solution through a template integer parameter
  *
 */
 template<typename T>
@@ -73,6 +83,15 @@ bool multiNode<T>::addNodeIter(multiNode<T> * cursor, multiNode<T> * target, int
   return true;
 }
 
+/* TEMPLATE FUNCTION addPeerNode - Chaining Method  
+ * Private recursive Iterator for a single given parameter (potensial not recursive implementation in the future) 
+ * 
+ * It manages through looped a switch the comparison of the tow nodes for every parameter
+ * 
+ * To do: 
+ * - improvement for spatial and time optimization to lower compiling and execution time => possible solution through a template integer parameter
+ *
+*/
 template<typename T>
 bool multiNode<T>::addPeerNode(multiNode<T> * cursor, multiNode<T> * target, int par) {
   //std::cout << "ITERATION" << std::endl;
@@ -103,7 +122,6 @@ bool multiNode<T>::addPeerNode(multiNode<T> * cursor, multiNode<T> * target, int
 
 template<typename T>
 void multiNode<T>::printTreePX(int par) {
-  //std::cout << "begin" << std::endl;
   printTreeIter(this->left[par], par);
   std::cout << this->params[par] << " |-";
   printPeer(this->peers_left[par], par);
