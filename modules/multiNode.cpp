@@ -120,6 +120,16 @@ bool multiNode<T>::addPeerNode(multiNode<T> * cursor, multiNode<T> * target, int
   return false;
 }
 
+/* TEMPLATE FUNCTION printTreePX 
+ * Public method to start printing a tree from the relative node (this)sorted given a specific parameter in a specific direction 
+ * 
+ * Devs must instantiate a node that they want to add to the tree
+ * 
+ * Devs are responsable for the tree mantainence
+ * 
+ * To do:
+ * - Improvable time execution and managemt through a template int to reduce the number of paramters at compile time, memory of the stack
+ */
 template<typename T>
 void multiNode<T>::printTreePX(int par) {
   printTreeIter(this->left[par], par);
@@ -131,9 +141,15 @@ void multiNode<T>::printTreePX(int par) {
   std::cout << std::endl;
 }
 
+/* TEMPLATE FUNCTION printTreeIter
+ * Private recursive Iterator for a single given parameter (potensial not recursive implementation in the future) that prints each element of the tree and their peers
+ * 
+ * To do: 
+ * - improvement for spatial and time optimization to lower compiling and execution time => possible solution through a template integer parameter
+ *
+ */
 template<typename T>
 void multiNode<T>::printTreeIter(multiNode<T> *cursor, int par)  {
-  //std::cout << "begin iter" << std::endl;
   if (!cursor) return;
   printTreeIter(cursor->left[par], par);
   std::cout << cursor->params[par] << " |-";
@@ -142,6 +158,13 @@ void multiNode<T>::printTreeIter(multiNode<T> *cursor, int par)  {
   printTreeIter(cursor->right[par], par);
 }
 
+/* TEMPLATE FUNCTION printTreeIter
+ * Private recursive Iterator for a single given parameter (potensial not recursive implementation in the future) that prints each peers
+ * 
+ * To do: 
+ * - improvement for spatial and time optimization to lower compiling and execution time => possible solution through a template integer parameter
+ *
+ */
 template<typename T>
 void multiNode<T>::printPeer(multiNode<T> *cursor, int par) {
   if (!cursor) return;

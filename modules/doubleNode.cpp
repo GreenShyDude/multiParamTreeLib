@@ -16,7 +16,7 @@ doubleNode::doubleNode(int p1, std::string p2) :
     peer1l(nullptr),
     peer1r(nullptr),
     peer2l(nullptr),
-    peer1r(nullptr)
+    peer2r(nullptr)
   {}
 
 /* FUNCTION addNode - Chaining Method
