@@ -17,7 +17,7 @@ Random project that I'm doing for the sake of writing some c++ and maybe use it 
 -- No Inheritance from other Classes
 
 ## Roadmap (TODO)
-- [] Commenting and polishing the code 
+- [checkbox:unchecked] Commenting and polishing the code 
 - [] Basic Double BRT: 
 -- [x] Add Node
 --- [x] Peers Management
