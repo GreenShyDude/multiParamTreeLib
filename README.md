@@ -1,4 +1,5 @@
 # Multi Parameter Binary Research Tree (MBRT) Library 
+Random project that I'm doing for the sake of writing some c++ and maybe use it in some other small project (games and a small dbms maybe, idk I don't readv "Il Tirreno") 
 ## Contents
 - ### Tempalte MBRT:
 -- Generic Class
@@ -16,6 +17,7 @@
 -- No Inheritance from other Classes
 
 ## Roadmap (TODO)
+- [] Commenting and polishing the code 
 - [] Basic Double BRT: 
 -- [x] Add Node
 --- [x] Peers Management
