@@ -57,7 +57,7 @@ bool multiNode<T>::addNode(multiNode<T> * target) {
  * It manages through a switch the comparison of the tow nodes for a specific parameter
  * 
  * To do: 
- * - improvement for spatial and time optimization to lower compiling and execution time => possible solution through a template integer parameter
+ * - improvement for spatial and time optimization to lower compiling and execution time => possible solution through a template integer parameter [EDIT PROBABLY NOT VIABLE]
  *
 */
 template<typename T>
@@ -89,7 +89,7 @@ bool multiNode<T>::addNodeIter(multiNode<T> * cursor, multiNode<T> * target, int
  * It manages through looped a switch the comparison of the tow nodes for every parameter
  * 
  * To do: 
- * - improvement for spatial and time optimization to lower compiling and execution time => possible solution through a template integer parameter
+ * - improvement for spatial and time optimization to lower compiling and execution time => possible solution through a template integer parameter [EDIT PROBABLY NOT VIABLE]
  *
 */
 template<typename T>
@@ -128,16 +128,11 @@ bool multiNode<T>::addPeerNode(multiNode<T> * cursor, multiNode<T> * target, int
  * Devs are responsable for the tree mantainence
  * 
  * To do:
- * - Improvable time execution and managemt through a template int to reduce the number of paramters at compile time, memory of the stack
+ * - Improvable time execution and managemt through a template int to reduce the number of paramters at compile time, memory of the stack [EDIT PROBABLY NOT VIABLE]
  */
 template<typename T>
 void multiNode<T>::printTreePX(int par) {
-  printTreeIter(this->left[par], par);
-  std::cout << this->params[par] << " |-";
-  printPeer(this->peers_left[par], par);
-  printPeer(this->peers_right[par], par);
-  std::cout << "| ";
-  printTreeIter(this->right[par], par);
+  printTreeIter(this, par);
   std::cout << std::endl;
 }
 
@@ -145,7 +140,8 @@ void multiNode<T>::printTreePX(int par) {
  * Private recursive Iterator for a single given parameter (potensial not recursive implementation in the future) that prints each element of the tree and their peers
  * 
  * To do: 
- * - improvement for spatial and time optimization to lower compiling and execution time => possible solution through a template integer parameter
+ * - improvement for spatial and time optimization to lower compiling and execution time => possible solution through a template integer parameter [EDIT PROBABLY NOT VIABLE]
+
  *
  */
 template<typename T>
