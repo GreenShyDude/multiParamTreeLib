@@ -1,13 +1,22 @@
 #include <iostream>
 #include "../include/doubleNode.h"
 #include <string>
+
+/* MAIN doubleNode CONSTRUCTOR
+ * limited to just initialize the 
+ *
+ */ 
 doubleNode::doubleNode(int p1, std::string p2) : 
     param1(p1),
     param2(p2),
     left1(nullptr),
     left2(nullptr),
     right1(nullptr),
-    right2(nullptr)
+    right2(nullptr),
+    peer1l(nullptr),
+    peer1r(nullptr),
+    peer2l(nullptr),
+    peer1r(nullptr)
   {}
 
 bool doubleNode::addNode(doubleNode *target){
