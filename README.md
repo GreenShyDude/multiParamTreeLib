@@ -20,7 +20,7 @@ Random project that I'm doing for the sake of writing some c++ and maybe use it 
 - [checkbox:unchecked] Commenting and polishing the code 
 - [ ] Basic Double BRT: 
 - - [x] Add Node
-- -- [x] Peers Management
+- - - [x] Peers Management
 - - [x] Print Content
 - - [ ] Get Content (No extraction)
 - - [ ] Remove/Extarct Node
