@@ -150,7 +150,7 @@ void multiNode<T>::printTreeIter(multiNode<T> *cursor, int par)  {
   printTreeIter(cursor->left[par], par);
   std::cout << cursor->params[par] << " |-";
   printPeer(cursor, par);
-  std::cout << "| ";
+  std::cout << "|" << std::endl;
   printTreeIter(cursor->right[par], par);
 }
 
@@ -172,6 +172,5 @@ void multiNode<T>::printPeer(multiNode<T> *cursor, int par) {
     std::cout << ( (i==(params.size()-1) || i == par  || ( i == par -1 && par == (params.size() -1) ) )?"":":");   
   }
   std::cout << "-";
-  printPeer(cursor->peers_right[par], par);
- 
+  printPeer(cursor->peers_right[par], par); 
 }
