@@ -1,3 +1,4 @@
 # ignore test executable file
 test
+test_o3
 test.exe
