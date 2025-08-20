@@ -1,13 +1,12 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
-#include "include/doubleNode.h"
-#include "include/multiNode.h"
+#include "include/multiParamTree.h"
 #include <vector>
 #include <functional>
 
 int main () {
-  std::vector<multiNode<int> *> tree2;
+  std::vector<mpt::multiNode<int> *> tree2;
   std::vector<std::vector<int>> par = {
     {1, 1, 1, 1},
     {1, 2 ,2 ,1},
@@ -38,15 +37,17 @@ int main () {
     {-1611, -6211, -22 , -42}, 
     {53,-65, -65 , -42}
   };
-  std::function<comp_ret(int,int)> lambda = [](int a, int b) {
-    if (a > b) return HIGHER;
-    else if (a<b) return LOWER;
-    else return EQUAL;
+  std::function<mpt::comp_ret(int,int)> lambda = [](int a, int b) {
+    if (a > b) return mpt::HIGHER;
+    else if (a<b) return mpt::LOWER;
+    else return mpt::EQUAL;
   };
   std::system("clear");
   std::cout << std::flush;
-
-  for (int i = 0; i < par.size(); i++) tree2.push_back(new multiNode<int>(par[i],lambda));
+  for (int i = 0; i < par.size(); i++) {
+    tree2.push_back(new mpt::multiNode<int>(par[i],lambda));
+    std::cout << tree2[i] << " " << alignof(mpt::multiNode<int>) << std::endl;
+  }
   for (int i = 1; i < tree2.size(); i++) tree2[0]->addNode(tree2[i]);
   for (int i = 0; i < tree2[0]->getNumParams(); i++)tree2[0]->printTreePX(i);
   for (int i = tree2.size() -1; i >= 0; i--) delete tree2[i];

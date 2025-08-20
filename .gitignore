@@ -2,3 +2,6 @@
 test
 test_o3
 test.exe
+*.out
+
+
